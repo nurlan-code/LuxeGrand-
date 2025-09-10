@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paketlərimiz - LuxeGrand Hotels</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #faf8f5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: -1px;
+        }
+
+        .logo i {
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #faf8f5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .page-content {
+            min-height: 90vh;
+            padding: 10rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #d4af37;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            padding: 1rem 2rem;
+            border: 2px solid #d4af37;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 0;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, transparent, #d4af37);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .package-card:hover::before {
+            opacity: 1;
+        }
+
+        .package-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .package-title {
+            font-size: 1.6rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .package-price {
+            font-size: 2.8rem;
+            color: #faf8f5;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .package-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .btn-luxury {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary-luxury {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #000;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-primary-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary-luxury:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #f4e4a6, #d4af37);
+        }
+
+        .luxury-footer {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            padding: 4rem 3rem 2rem;
+            color: #faf8f5;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #faf8f5;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: #d4af37;
+            padding-left: 5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.8;
+        }
+
+        .developer-credit {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #d4af37;
+        }
+
+        @keyframes luxurySlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-luxury {
+            animation: luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 2rem;
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .page-content {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .package-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .btn-luxury {
+                padding: 1rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>
+                LuxeGrand
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Ana Səhifə</a></li>
+                <li><a href="services.html">Xidmətlər</a></li>
+                <li><a href="packages.html" style="color: #d4af37;">Paketlər</a></li>
+                <li><a href="about.html">Haqqımızda</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+        </a>
+        <div class="page-header">
+            <h1>Paketlərimiz</h1>
+            <p>Xüsusi ehtiyaclarınıza uyğun hazırlanmış lüks qonaqçılıq paketlərimizlə özünüzü kral kimi hiss edin</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="package-card fade-in-luxury">
+                <h3 class="package-title">KLASSİK LÜKS</h3>
+                <div class="package-price">€350/gecə</div>
+                <ul class="package-features">
+                    <li>Premium Otaq (45 m²)</li>
+                    <li>Səhər yeməyi daxildir</li>
+                    <li>Fitness Mərkəzi</li>
+                    <li>Paltaryuyan Xidməti</li>
+                    <li>24/7 Dəstək Xidməti</li>
+                    <li>Pulsuz Wi-Fi</li>
+                    <li>Mini bar (ölçülü)</li>
+                </ul>
+                <a href="contact.html" class="btn-luxury btn-primary-luxury">
+                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                </a>
+            </div>
+            <div class="package-card fade-in-luxury">
+                <h3 class="package-title">PREZIDENT LÜKS</h3>
+                <div class="package-price">€750/gecə</div>
+                <ul class="package-features">
+                    <li>Prezident Suite (90 m²)</li>
+                    <li>Şəxsi Aşpaz Xidməti</li>
+                    <li>Limuzin Transfer</li>
+                    <li>Eksklüziv Spa Paketi</li>
+                    <li>VIP Giriş Hüququ</li>
+                    <li>Şəxsi Terras</li>
+                    <li>Premium Mini Bar</li>
+                </ul>
+                <a href="contact.html" class="btn-luxury btn-primary-luxury">
+                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                </a>
+            </div>
+            <div class="package-card fade-in-luxury">
+                <h3 class="package-title">ROYAL TƏCRÜBƏ</h3>
+                <div class="package-price">€1200/gecə</div>
+                <ul class="package-features">
+                    <li>Kral Suite (150 m²)</li>
+                    <li>Şəxsi Butler Xidməti</li>
+                    <li>Helikopter Transferi</li>
+                    <li>Eksklüziv Etkinliklər</li>
+                    <li>Şəxsi Şofer Xidməti</li>
+                    <li>Özəl Hovuz</li>
+                    <li>Sınırsız Xidmətlər</li>
+                </ul>
+                <a href="contact.html" class="btn-luxury btn-primary-luxury">
+                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>LuxeGrand Hotels</h3>
+                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Otellərimiz</h3>
+                <ul>
+                    <li><a href="#">Bakı</a></li>
+                    <li><a href="#">İstanbul</a></li>
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">New York</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Xidmətlərimiz</h3>
+                <ul>
+                    <li><a href="services.html">Konsyerj Xidməti</a></li>
+                    <li><a href="services.html">Spa & Sağlamlıq</a></li>
+                    <li><a href="services.html">Qastro Nomik Təcrübə</a></li>
+                    <li><a href="services.html">VIP Transfer</a></li>
+                    <li><a href="services.html">Biznes Mərkəzi</a></li>
+                    <li><a href="services.html">Romantik Paketlər</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Əlaqə</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                <p><i class="fas fa-envelope"></i> info@luxegrand.az</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 LuxeGrand Hotels. Bütün hüquqlar qorunur.</p>
+            <p class="developer-credit">Sayt <strong>Məmmədli Nurlan</strong> tərəfindən hazırlanmışdır</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburger');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-luxury');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
