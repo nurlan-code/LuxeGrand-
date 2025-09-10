@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haqqımızda - LuxeGrand Hotels</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #faf8f5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: -1px;
+        }
+
+        .logo i {
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #faf8f5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .page-content {
+            min-height: 90vh;
+            padding: 10rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #d4af37;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            padding: 1rem 2rem;
+            border: 2px solid #d4af37;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .developer-info {
+            background: linear-gradient(135deg, #ffffff, #faf8f5);
+            padding: 3rem;
+            border-radius: 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 4rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #000;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .luxury-section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #ffffff, #faf8f5);
+            border-radius: 0;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #ffffff;
+            border-left: 4px solid #d4af37;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .luxury-footer {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            padding: 4rem 3rem 2rem;
+            color: #faf8f5;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #faf8f5;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: #d4af37;
+            padding-left: 5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.8;
+        }
+
+        .developer-credit {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #d4af37;
+        }
+
+        @keyframes luxurySlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-luxury {
+            animation: luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 1200px) {
+            .luxury-section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 2rem;
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .page-content {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .luxury-section {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-card,
+            .developer-info {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>
+                LuxeGrand
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Ana Səhifə</a></li>
+                <li><a href="services.html">Xidmətlər</a></li>
+                <li><a href="packages.html">Paketlər</a></li>
+                <li><a href="about.html" style="color: #d4af37;">Haqqımızda</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+        </a>
+        <div class="page-header">
+            <h1>Haqqımızda</h1>
+            <p>2010-cu ildən bəri dünyanın ən gözəl şəhərlərində lüks otellər şəbəkəsi olaraq fəaliyyət göstəririk</p>
+        </div>
+
+        <div class="developer-info fade-in-luxury">
+            <div class="developer-avatar">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h2>Frontend Developer</h2>
+            <h3>Məmmədli Nurlan</h3>
+            <p>Bu sayt, LuxeGrand Hotels üçün Məmmədli Nurlan tərəfindən hazırlanmışdır. Müasir və istifadəçi dostu interfeyslər yaratmaqla yanaşı, performans və estetikadan heç bir şey əskik etməməyə çalışmışam.</p>
+            <div class="contact-details" style="margin-top: 2rem;">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>nurlanmammadli2@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>www.linkedin.com/in/nurlan-məmmədli-b6a55b308</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="luxury-section">
+            <div class="section-header">
+                <h2>Bizim Tariximiz</h2>
+                <p>Lüks və zənginlik anlayışını yenidən təyin edən bir səyahət</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-luxury">
+                    <div class="service-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Başlanğıc</h3>
+                    <p>2010-cu ildə Parisdə ilk otelimizi açdıq. Məqsədimiz sadə idi: qonaqlarımıza evdə olduqları hissini yaşatmaq, amma bir oteldə olmanın bütün lüks imkanları ilə.</p>
+                </div>
+                <div class="service-card fade-in-luxury">
+                    <div class="service-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3>Böyümə</h3>
+                    <p>Növbəti on ildə dünyanın ən gözəl 20 şəhərində otellər şəbəkəsi yaratdıq. Hər yeni otelimiz, özünəməxsus memarlıq və dizayn anlayışı ilə fərqlənir.</p>
+                </div>
+                <div class="service-card fade-in-luxury">
+                    <div class="service-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Təltiflər</h3>
+                    <p>2023-cü ildə "Dünyanın Ən Yaxşı Lüks Otel Şəbəkəsi" mükafatını qazandıq. Bu, komandamızın səylərinin və qonaqlarımıza həsr olunmuşluğumuzun təntənəli tanınmasıdır.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>LuxeGrand Hotels</h3>
+                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Otellərimiz</h3>
+                <ul>
+                    <li><a href="#">Bakı</a></li>
+                    <li><a href="#">İstanbul</a></li>
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">New York</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Xidmətlərimiz</h3>
+                <ul>
+                    <li><a href="services.html">Konsyerj Xidməti</a></li>
+                    <li><a href="services.html">Spa & Sağlamlıq</a></li>
+                    <li><a href="services.html">Qastro Nomik Təcrübə</a></li>
+                    <li><a href="services.html">VIP Transfer</a></li>
+                    <li><a href="services.html">Biznes Mərkəzi</a></li>
+                    <li><a href="services.html">Romantik Paketlər</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Əlaqə</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                <p><i class="fas fa-envelope"></i> info@luxegrand.az</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 LuxeGrand Hotels. Bütün hüquqlar qorunur.</p>
+            <p class="developer-credit">Sayt <strong>Məmmədli Nurlan</strong> tərəfindən hazırlanmışdır</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburger');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-luxury');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
