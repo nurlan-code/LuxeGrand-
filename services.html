@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xidmətlərimiz - LuxeGrand Hotels</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #faf8f5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: -1px;
+        }
+
+        .logo i {
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #faf8f5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .page-content {
+            min-height: 90vh;
+            padding: 10rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 2px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #d4af37;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            padding: 1rem 2rem;
+            border: 2px solid #d4af37;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .services-intro {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 166, 0.1));
+            padding: 4rem 3rem;
+            border-radius: 0;
+            margin-bottom: 5rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .services-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .category-tab {
+            background: linear-gradient(135deg, #ffffff, #faf8f5);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 166, 0.1));
+            transition: left 0.5s ease;
+        }
+
+        .category-tab:hover::before,
+        .category-tab.active::before {
+            left: 0;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .category-tab h3 {
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-tab p {
+            color: #666;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #ffffff, #faf8f5);
+            border-radius: 0;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .service-card.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .service-price {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 166, 0.1));
+            padding: 1rem;
+            border-radius: 0;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .service-price .price {
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .service-price .period {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .book-service-btn {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .book-service-btn:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .testimonials {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            padding: 5rem 3rem;
+            margin: 5rem -3rem 0;
+            color: #faf8f5;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .testimonial-rating {
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 166, 0.1));
+            padding: 4rem 3rem;
+            text-align: center;
+            margin: 5rem -3rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-cta h2 {
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn.primary {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-btn.secondary:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .luxury-footer {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            padding: 4rem 3rem 2rem;
+            color: #faf8f5;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #faf8f5;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: #d4af37;
+            padding-left: 5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            opacity: 0.8;
+        }
+
+        .developer-credit {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #d4af37;
+        }
+
+        @keyframes luxurySlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-luxury {
+            animation: luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 2rem;
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .testimonials,
+            .contact-cta {
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .page-content {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-intro,
+            .testimonials,
+            .contact-cta {
+                padding: 3rem 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                padding: 1rem 2rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonials-grid,
+            .services-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+            }
+
+            .testimonials,
+            .contact-cta {
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>
+                LuxeGrand
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Ana Səhifə</a></li>
+                <li><a href="services.html" style="color: #d4af37;">Xidmətlər</a></li>
+                <li><a href="packages.html">Paketlər</a></li>
+                <li><a href="about.html">Haqqımızda</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+        </a>
+        
+        <div class="page-header">
+            <h1>Xidmətlərimiz</h1>
+            <p>LuxeGrand Hotels olaraq, qonaqlarımıza unudulmaz təcrübələr yaşatmaq üçün ən yüksək standartlarda xidmət təqdim edirik</p>
+        </div>
+
+        <div class="services-intro fade-in-luxury">
+            <h2>Lüks Həyat Tərzi Təcrübəsi</h2>
+            <p>Hər bir xidmətimizdə mükəmməllik, rahatlıq və eksklüzivlik prinsiplərinə sadiq qalırıq. Peşəkar komandamız sizin hər ehtiyacınızı öncədən düşünərək, fərdi yanaşma ilə xidmət göstərir. Lüks otellər səbəkəmizin təqdim etdiyi xidmətlər dünya standartlarına uyğundur.</p>
+        </div>
+
+        <div class="services-categories">
+            <div class="category-tab active" data-category="all">
+                <h3>Bütün Xidmətlər</h3>
+                <p>Təqdim etdiyimiz bütün lüks xidmətləri görün</p>
+            </div>
+            <div class="category-tab" data-category="wellness">
+                <h3>Sağlamlıq & Rahatlıq</h3>
+                <p>Spa, sağlamlıq və rahatlıq xidmətləri</p>
+            </div>
+            <div class="category-tab" data-category="dining">
+                <h3>Qastro Nomik</h3>
+                <p>Yemək və içki təcrübələri</p>
+            </div>
+            <div class="category-tab" data-category="business">
+                <h3>Biznes & Tədbir</h3>
+                <p>Biznes və konfrans xidmətləri</p>
+            </div>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <!-- Konsyerj Xidmətləri -->
+            <div class="service-card fade-in-luxury" data-category="all">
+                <div class="service-icon">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h3>Fərdi Konsyerj Xidməti</h3>
+                <p>Hər ehtiyacınızı qarşılamaq üçün 24/7 fərdi konsyerj xidməti. Şəhərdəki ən yaxşı təcrübələrə eksklüziv giriş.</p>
+                <ul class="service-features">
+                    <li>24/7 şəxsi köməkçi</li>
+                    <li>Rezervasiya və təşkil xidmətləri</li>
+                    <li>VIP təcrübələrə giriş</li>
+                    <li>Şəxsi alış-veriş köməkçisi</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$150</span>
+                    <span class="period">/ gün</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Konsyerj Xidməti')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Spa & Wellness -->
+            <div class="service-card fade-in-luxury" data-category="wellness">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Lüks Spa & Sağlamlıq</h3>
+                <p>Dünya standartlarında spa müalicələri və fərdi sağlamlıq proqramları. Ekspert terapevtlərlə tam rahatlıq.</p>
+                <ul class="service-features">
+                    <li>Fərdi spa müalicələri</li>
+                    <li>Özəl hamam və sauna</li>
+                    <li>Aromaterapi və masaj</li>
+                    <li>Sağlamlıq məsləhətçiliyi</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$200</span>
+                    <span class="period">/ seans</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Spa Xidməti')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Qastro Nomik -->
+            <div class="service-card fade-in-luxury" data-category="dining">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Qastro Nomik Təcrübə</h3>
+                <p>Mişlen ulduzlu şeflər tərəfindən hazırlanan eksklüziv yeməklər və şəxsi aşpaz xidməti.</p>
+                <ul class="service-features">
+                    <li>Şəxsi aşpaz xidməti</li>
+                    <li>Eksklüziv menyu təklifi</li>
+                    <li>Şərab dadma təcrübəsi</li>
+                    <li>Otaq xidməti</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$300</span>
+                    <span class="period">/ nəfər</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Qastro Nomik Təcrübə')">Rezervasiya Et</button>
+            </div>
+
+            <!-- VIP Transfer -->
+            <div class="service-card fade-in-luxury" data-category="all">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>VIP Transfer Xidməti</h3>
+                <p>Lüks avtomobillər və peşəkar şofyorlarla şəxsi transfer xidməti. Rahatlıq və təhlükəsizlik təminatı.</p>
+                <ul class="service-features">
+                    <li>Lüks avtomobil parkı</li>
+                    <li>Peşəkar şofyorlar</li>
+                    <li>24/7 əlçatanlıq</li>
+                    <li>Hava limanı transferi</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$80</span>
+                    <span class="period">/ saat</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('VIP Transfer')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Biznes Mərkəzi -->
+            <div class="service-card fade-in-luxury" data-category="business">
+                <div class="service-icon">
+                    <i class="fas fa-business-time"></i>
+                </div>
+                <h3>Biznes Mərkəzi</h3>
+                <p>Tam təchiz edilmiş biznes mərkəzi, şəxsi köməkçi xidmətləri və yüksək sürətli internet əlaqəsi.</p>
+                <ul class="service-features">
+                    <li>Toplantı otaqları</li>
+                    <li>Prezentasiya avadanlıqları</li>
+                    <li>Sənəd çap xidməti</li>
+                    <li>Tərcümə xidmətləri</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$120</span>
+                    <span class="period">/ saət</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Biznes Mərkəzi')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Romantik Paketlər -->
+            <div class="service-card fade-in-luxury" data-category="all">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Romantik Paketlər</h3>
+                <p>Xüsusi anlar üçün fərdiləşdirilmiş romantik təkliflər. Bal ayı paketləri və unudulmaz təcrübələr.</p>
+                <ul class="service-features">
+                    <li>Romantik dekorasiya</li>
+                    <li>Xüsusi menyu</li>
+                    <li>Çiçək və hədiyyə təşkili</li>
+                    <li>Fotosessiya</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$500</span>
+                    <span class="period">/ paket</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Romantik Paket')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Etkinlik Təşkili -->
+            <div class="service-card fade-in-luxury" data-category="business">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Etkinlik Təşkili</h3>
+                <p>Korporativ tədbirlər, toy mərasimleri və xüsusi etkinliklər üçün peşəkar təşkil xidmətləri.</p>
+                <ul class="service-features">
+                    <li>Tədbir planlaması</li>
+                    <li>Dekorasiya və dizayn</li>
+                    <li>Catering xidməti</li>
+                    <li>Texniki dəstək</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$2000</span>
+                    <span class="period">/ tədbir</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Etkinlik Təşkili')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Fitness & Yoga -->
+            <div class="service-card fade-in-luxury" data-category="wellness">
+                <div class="service-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Fitness & Yoga Mərkəzi</h3>
+                <p>Müasir avadanlıqlarla təchiz edilmiş fitness mərkəzi və peşəkar yoga müəllimləri ilə şəxsi məşqlər.</p>
+                <ul class="service-features">
+                    <li>Şəxsi məşqçi</li>
+                    <li>Yoga və meditasiya</li>
+                    <li>Modern avadanlıqlar</li>
+                    <li>Qidalanma məsləhətləri</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$100</span>
+                    <span class="period">/ seans</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Fitness Mərkəzi')">Rezervasiya Et</button>
+            </div>
+
+            <!-- Şəxsi Şef -->
+            <div class="service-card fade-in-luxury" data-category="dining">
+                <div class="service-icon">
+                    <i class="fas fa-chef-hat"></i>
+                </div>
+                <h3>Şəxsi Şef Xidməti</h3>
+                <p>Otağınızda eksklüziv kulinariya təcrübəsi yaşayın. Seçdiyiniz menyuya uyğun hazırlanmış yeməklər.</p>
+                <ul class="service-features">
+                    <li>Fərdi menyu hazırlığı</li>
+                    <li>Otaqda yemək hazırlanması</li>
+                    <li>Eksklüziv məhsullar</li>
+                    <li>Kulinariya dərsi</li>
+                </ul>
+                <div class="service-price">
+                    <span class="price">$400</span>
+                    <span class="period">/ yemək</span>
+                </div>
+                <button class="book-service-btn" onclick="bookService('Şəxsi Şef')">Rezervasiya Et</button>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>Qonaqlarımızın Rəyləri</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"LuxeGrand-da qaldığım müddət ərzində aldığım xidmət həqiqətən də dünya standartlarında idi. Konsyerj xidməti və spa təcrübəsi məni heyran etdi."</p>
+                    <div class="testimonial-author">- Leyla Məmmədova, Biznes qadını</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Romantik paketimiz mükəmməl idi. Hər detala göstərilən diqqət və peşəkarlıq sevindirici idi. Təşəkkür edirik!"</p>
+                    <div class="testimonial-author">- Rəşad və Nigar Əliyevlər</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Biznes toplantımız üçün təşkil olunan xidmət və texniki dəstək mükəmməl idi. Şəxsi şef xidməti isə gecəmizi unudulmaz etdi."</p>
+                    <div class="testimonial-author">- Kərim Quliyev, CEO</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-cta">
+            <h2>Bizə Müraciət Edin</h2>
+            <p>Xidmətlərimiz haqqında ətraflı məlumat almaq və rezervasiya etmək üçün bizimlə əlaqə saxlayın. Peşəkar komandamız sizə köməklik etməkdən məmnun olacaq.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn primary">
+                    <i class="fas fa-phone"></i> İndi Zəng Edin
+                </a>
+                <a href="packages.html" class="cta-btn secondary">
+                    <i class="fas fa-gift"></i> Paketləri Görün
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>LuxeGrand Hotels</h3>
+                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Otellərimiz</h3>
+                <ul>
+                    <li><a href="#">Bakı</a></li>
+                    <li><a href="#">İstanbul</a></li>
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">New York</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Xidmətlərimiz</h3>
+                <ul>
+                    <li><a href="services.html">Konsyerj Xidməti</a></li>
+                    <li><a href="services.html">Spa & Sağlamlıq</a></li>
+                    <li><a href="services.html">Qastro Nomik Təcrübə</a></li>
+                    <li><a href="services.html">VIP Transfer</a></li>
+                    <li><a href="services.html">Biznes Mərkəzi</a></li>
+                    <li><a href="services.html">Romantik Paketlər</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Əlaqə</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                <p><i class="fas fa-envelope"></i> info@luxegrand.az</p>
+                <p><i class="fas fa-clock"></i> 24/7 Müştəri Xidməti</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 LuxeGrand Hotels. Bütün hüquqlar qorunur.</p>
+            <p class="developer-credit">Sayt <strong>Məmmədli Nurlan</strong> tərəfindən hazırlanmışdır</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburger');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const category = tab.dataset.category;
+                
+                serviceCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        function bookService(serviceName) {
+            alert(`${serviceName} üçün rezervasiya tələbiniz qəbul edildi. Tezliklə sizinlə əlaqə saxlayacağıq.`);
+        }
+
+        function scrollToSection(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-luxury');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'luxurySlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            const buttons = document.querySelectorAll('.book-service-btn, .cta-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: rippleEffect 0.6s ease-out;
+                        pointer-events: none;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleEffect {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
