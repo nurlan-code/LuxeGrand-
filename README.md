@@ -31,7 +31,7 @@ about.html - Haqqımızda səhifəsi (Şirkət tarixi və inkişafı)
 contact.html - Əlaqə səhifəsi (Əlaqə formu və məlumatları)
 
 🎨 Dizayn Elementləri
-Rəng Sxemi: Qara, qızılı (d4af37) və ağ rənglər
+Rəng Sxemi: Qara, qızılı (#d4af37) və ağ rənglər
 
 Fontlar: Playfair Display və Georgia serif fontları
 
