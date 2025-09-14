@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Əlaqə - LuxeGrand Hotels</title>
+    <title>Contact - LuxeGrand Hotels</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -394,6 +394,193 @@
             color: #d4af37;
         }
 
+        .faq-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 1rem;
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-question {
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+        }
+
+        .faq-question h3 {
+            color: #2c2c2c;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: #d4af37;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #faf8f5;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 2rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .map-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            padding: 8rem 3rem;
+            color: #faf8f5;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 0;
+            padding: 4rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .map-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+        }
+
+        .map-placeholder h3 {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .map-placeholder p {
+            color: #faf8f5;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-section {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            padding: 6rem 3rem;
+            color: #000;
+        }
+
+        .emergency-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .emergency-content {
+            text-align: center;
+        }
+
+        .emergency-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-weight: 300;
+        }
+
+        .emergency-content > p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .emergency-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .emergency-item {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .emergency-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .emergency-item i {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .emergency-item h4 {
+            font-size: 1.4rem;
+            color: #000;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .emergency-item p {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
         @keyframes luxurySlideUp {
             from {
                 opacity: 0;
@@ -501,11 +688,11 @@
                 LuxeGrand
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Ana Səhifə</a></li>
-                <li><a href="services.html">Xidmətlər</a></li>
-                <li><a href="packages.html">Paketlər</a></li>
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="contact.html" style="color: #d4af37;">Əlaqə</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" style="color: #d4af37;">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -517,64 +704,64 @@
 
     <div class="page-content">
         <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+            <i class="fas fa-arrow-left"></i> Back to Home
         </a>
         <div class="page-header">
-            <h1>Bizimlə Əlaqə</h1>
-            <p>Sual, təklif və ya rezervasiya üçün aşağıdakı formadan istifadə edin və ya birbaşa əlaqə məlumatlarımızdan istifadə edin</p>
+            <h1>Contact Us</h1>
+            <p>Use the form below for questions, suggestions or reservations, or use our direct contact information</p>
         </div>
 
         <section class="contact-section">
             <div class="contact-container">
                 <div class="contact-form fade-in-luxury">
-                    <h3>Mesaj Göndərin</h3>
+                    <h3>Send Message</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Ad Soyad</label>
+                            <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Ünvanı</label>
+                            <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Telefon</label>
+                            <label for="phone">Phone</label>
                             <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Mövzu</label>
+                            <label for="subject">Subject</label>
                             <select id="subject" name="subject" required>
-                                <option value="">Seçin</option>
-                                <option value="reservation">Rezervasiya</option>
-                                <option value="information">Məlumat</option>
-                                <option value="complaint">Şikayət</option>
-                                <option value="suggestion">Təklif</option>
-                                <option value="other">Digər</option>
+                                <option value="">Select</option>
+                                <option value="reservation">Reservation</option>
+                                <option value="information">Information</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Mesaj</label>
+                            <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn-luxury btn-primary-luxury">
-                            <i class="fas fa-paper-plane"></i> Mesajı Göndər
+                            <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
                 </div>
                 <div class="contact-info fade-in-luxury">
-                    <h3>Əlaqə Məlumatları</h3>
+                    <h3>Contact Information</h3>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Ünvan</h4>
-                                <p>123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                                <h4>Address</h4>
+                                <p>123 Luxury Street, Baku, Azerbaijan</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Telefon</h4>
+                                <h4>Phone</h4>
                                 <p>+994 12 345 67 89</p>
                             </div>
                         </div>
@@ -588,9 +775,113 @@
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <h4>İş Saatları</h4>
-                                <p>Həftəiçi: 08:00 - 23:00</p>
-                                <p>Həftəsonu: 09:00 - 01:00</p>
+                                <h4>Working Hours</h4>
+                                <p>Weekdays: 08:00 - 23:00</p>
+                                <p>Weekends: 09:00 - 01:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services and policies</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-in-luxury">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible cancellation policies. For most bookings, you can cancel up to 24 hours before your arrival date for a full refund. Premium packages may have different terms, which will be clearly stated during booking.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-luxury">
+                    <div class="faq-question">
+                        <h3>Do you offer airport transfer services?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide complimentary airport transfer services for all our guests. Our luxury vehicles and professional chauffeurs ensure a comfortable and stylish arrival to our properties.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-luxury">
+                    <div class="faq-question">
+                        <h3>Are pets allowed in your hotels?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We welcome well-behaved pets in most of our properties. Please inform us during booking, and we'll ensure your furry companion receives the same luxury treatment as our human guests.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-luxury">
+                    <div class="faq-question">
+                        <h3>What dining options are available?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Each of our hotels features world-class restaurants with Michelin-starred chefs, offering everything from fine dining to casual cuisine. We also provide 24/7 room service and private dining options.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-luxury">
+                    <div class="faq-question">
+                        <h3>Do you have meeting and event facilities?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Our hotels feature state-of-the-art meeting rooms, conference facilities, and elegant event spaces perfect for business meetings, weddings, and special celebrations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map Section -->
+        <section class="map-section">
+            <div class="section-header">
+                <h2>Find Us</h2>
+                <p>Visit our flagship location in the heart of Baku</p>
+            </div>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Interactive Map</h3>
+                    <p>123 Luxury Street, Baku, Azerbaijan</p>
+                    <p>Click to view on Google Maps</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contact Section -->
+        <section class="emergency-section">
+            <div class="emergency-container">
+                <div class="emergency-content">
+                    <h2>24/7 Emergency Support</h2>
+                    <p>Our dedicated emergency support team is available around the clock to assist you with any urgent needs during your stay.</p>
+                    <div class="emergency-contacts">
+                        <div class="emergency-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Emergency Hotline</h4>
+                                <p>+994 12 345 67 89</p>
+                            </div>
+                        </div>
+                        <div class="emergency-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Emergency Email</h4>
+                                <p>emergency@luxegrand.az</p>
+                            </div>
+                        </div>
+                        <div class="emergency-item">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h4>Live Chat</h4>
+                                <p>Available 24/7 on our website</p>
                             </div>
                         </div>
                     </div>
@@ -603,7 +894,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>LuxeGrand Hotels</h3>
-                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <p>Luxury hotel network in the world's most prestigious cities. We have been working to provide you with the best experience since 2010.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -687,6 +978,50 @@
             fadeElements.forEach(element => {
                 observer.observe(element);
             });
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const subject = formData.get('subject');
+                    const message = formData.get('message');
+                    
+                    if (!name || !email || !subject || !message) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert('Thank you for your message! We will get back to you within 24 hours.');
+                        contactForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
         });
     </script>
 </body>
