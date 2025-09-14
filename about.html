@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haqqımızda - LuxeGrand Hotels</title>
+    <title>About Us - LuxeGrand Hotels</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -412,6 +412,269 @@
             color: #d4af37;
         }
 
+        .mission-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .mission-card {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .mission-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .mission-card:hover .mission-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .mission-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .mission-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            padding: 8rem 3rem;
+            color: #faf8f5;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 0;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, transparent, #d4af37);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .team-member:hover::before {
+            opacity: 1;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .team-member:hover .member-photo {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .team-member h3 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .team-member h4 {
+            font-size: 1.2rem;
+            color: #faf8f5;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .team-member p {
+            color: #faf8f5;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            color: #faf8f5;
+            text-decoration: none;
+        }
+
+        .member-social a:hover {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .awards-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .award-item {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .award-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .award-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .award-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .award-item:hover .award-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .award-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .award-item p {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         @keyframes luxurySlideUp {
             from {
                 opacity: 0;
@@ -523,11 +786,11 @@
                 LuxeGrand
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Ana Səhifə</a></li>
-                <li><a href="services.html">Xidmətlər</a></li>
-                <li><a href="packages.html">Paketlər</a></li>
-                <li><a href="about.html" style="color: #d4af37;">Haqqımızda</a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="about.html" style="color: #d4af37;">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -539,11 +802,11 @@
 
     <div class="page-content">
         <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+            <i class="fas fa-arrow-left"></i> Back to Home
         </a>
         <div class="page-header">
-            <h1>Haqqımızda</h1>
-            <p>2010-cu ildən bəri dünyanın ən gözəl şəhərlərində lüks otellər şəbəkəsi olaraq fəaliyyət göstəririk</p>
+            <h1>About Us</h1>
+            <p>We have been operating as a luxury hotel network in the world's most beautiful cities since 2010</p>
         </div>
 
         <div class="developer-info fade-in-luxury">
@@ -552,7 +815,7 @@
             </div>
             <h2>Frontend Developer</h2>
             <h3>Məmmədli Nurlan</h3>
-            <p>Bu sayt, LuxeGrand Hotels üçün Məmmədli Nurlan tərəfindən hazırlanmışdır. Müasir və istifadəçi dostu interfeyslər yaratmaqla yanaşı, performans və estetikadan heç bir şey əskik etməməyə çalışmışam.</p>
+            <p>This website was developed by Məmmədli Nurlan for LuxeGrand Hotels. I have tried not to compromise on performance and aesthetics while creating modern and user-friendly interfaces.</p>
             <div class="contact-details" style="margin-top: 2rem;">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -567,30 +830,152 @@
 
         <div class="luxury-section">
             <div class="section-header">
-                <h2>Bizim Tariximiz</h2>
-                <p>Lüks və zənginlik anlayışını yenidən təyin edən bir səyahət</p>
+                <h2>Our History</h2>
+                <p>A journey that redefines the concept of luxury and wealth</p>
             </div>
             <div class="services-grid">
                 <div class="service-card fade-in-luxury">
                     <div class="service-icon">
                         <i class="fas fa-flag"></i>
                     </div>
-                    <h3>Başlanğıc</h3>
-                    <p>2010-cu ildə Parisdə ilk otelimizi açdıq. Məqsədimiz sadə idi: qonaqlarımıza evdə olduqları hissini yaşatmaq, amma bir oteldə olmanın bütün lüks imkanları ilə.</p>
+                    <h3>Beginning</h3>
+                    <p>In 2010, we opened our first hotel in Paris. Our goal was simple: to make our guests feel at home, but with all the luxury amenities of being in a hotel.</p>
                 </div>
                 <div class="service-card fade-in-luxury">
                     <div class="service-icon">
                         <i class="fas fa-expand"></i>
                     </div>
-                    <h3>Böyümə</h3>
-                    <p>Növbəti on ildə dünyanın ən gözəl 20 şəhərində otellər şəbəkəsi yaratdıq. Hər yeni otelimiz, özünəməxsus memarlıq və dizayn anlayışı ilə fərqlənir.</p>
+                    <h3>Growth</h3>
+                    <p>Over the next decade, we created a hotel network in the world's 20 most beautiful cities. Each new hotel stands out with its unique architectural and design concept.</p>
                 </div>
                 <div class="service-card fade-in-luxury">
                     <div class="service-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3>Təltiflər</h3>
-                    <p>2023-cü ildə "Dünyanın Ən Yaxşı Lüks Otel Şəbəkəsi" mükafatını qazandıq. Bu, komandamızın səylərinin və qonaqlarımıza həsr olunmuşluğumuzun təntənəli tanınmasıdır.</p>
+                    <h3>Awards</h3>
+                    <p>In 2023, we won the "World's Best Luxury Hotel Network" award. This is a ceremonial recognition of our team's efforts and our dedication to our guests.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission & Values Section -->
+        <div class="luxury-section mission-section">
+            <div class="section-header">
+                <h2>Our Mission & Values</h2>
+                <p>The principles that guide us in delivering exceptional luxury experiences</p>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card fade-in-luxury">
+                    <div class="mission-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion for Excellence</h3>
+                    <p>We are driven by an unwavering commitment to excellence in every detail, from the design of our properties to the quality of our service delivery.</p>
+                </div>
+                <div class="mission-card fade-in-luxury">
+                    <div class="mission-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Guest-Centric Approach</h3>
+                    <p>Our guests are at the heart of everything we do. We anticipate their needs and exceed their expectations through personalized, thoughtful service.</p>
+                </div>
+                <div class="mission-card fade-in-luxury">
+                    <div class="mission-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Sustainable Luxury</h3>
+                    <p>We believe luxury should be sustainable. Our commitment to environmental responsibility ensures future generations can enjoy our beautiful world.</p>
+                </div>
+                <div class="mission-card fade-in-luxury">
+                    <div class="mission-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Cultural Respect</h3>
+                    <p>We honor and celebrate the unique cultures of each destination, creating authentic experiences that connect guests with local traditions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <div class="section-header">
+                <h2>Meet Our Leadership Team</h2>
+                <p>The visionaries behind LuxeGrand Hotels' success</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member fade-in-luxury">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Alexander Thompson</h3>
+                    <h4>Chief Executive Officer</h4>
+                    <p>With over 20 years in luxury hospitality, Alexander leads our global expansion and strategic vision.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member fade-in-luxury">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Isabella Rodriguez</h3>
+                    <h4>Chief Operating Officer</h4>
+                    <p>Isabella ensures operational excellence across all our properties, maintaining our high standards worldwide.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member fade-in-luxury">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>James Mitchell</h3>
+                    <h4>Chief Experience Officer</h4>
+                    <p>James designs and curates the unique experiences that make each stay at LuxeGrand unforgettable.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards & Recognition Section -->
+        <div class="awards-section">
+            <div class="section-header">
+                <h2>Awards & Recognition</h2>
+                <p>Our commitment to excellence has been recognized by industry leaders worldwide</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-item fade-in-luxury">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>World's Best Luxury Hotel Network</h3>
+                    <p>Luxury Travel Awards 2023</p>
+                </div>
+                <div class="award-item fade-in-luxury">
+                    <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>5-Star Excellence Award</h3>
+                    <p>International Hotel Association 2023</p>
+                </div>
+                <div class="award-item fade-in-luxury">
+                    <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Best Customer Service</h3>
+                    <p>Global Hospitality Awards 2022</p>
+                </div>
+                <div class="award-item fade-in-luxury">
+                    <div class="award-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Most Innovative Luxury Brand</h3>
+                    <p>Luxury Brand Awards 2022</p>
                 </div>
             </div>
         </div>
@@ -600,7 +985,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>LuxeGrand Hotels</h3>
-                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <p>Luxury hotel network in the world's most prestigious cities. We have been working to provide you with the best experience since 2010.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -609,10 +994,10 @@
                 </div>
             </div>
             <div class="footer-section">
-                <h3>Otellərimiz</h3>
+                <h3>Our Hotels</h3>
                 <ul>
-                    <li><a href="#">Bakı</a></li>
-                    <li><a href="#">İstanbul</a></li>
+                    <li><a href="#">Baku</a></li>
+                    <li><a href="#">Istanbul</a></li>
                     <li><a href="#">Paris</a></li>
                     <li><a href="#">London</a></li>
                     <li><a href="#">Dubai</a></li>
@@ -620,26 +1005,26 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Xidmətlərimiz</h3>
+                <h3>Our Services</h3>
                 <ul>
-                    <li><a href="services.html">Konsyerj Xidməti</a></li>
-                    <li><a href="services.html">Spa & Sağlamlıq</a></li>
-                    <li><a href="services.html">Qastro Nomik Təcrübə</a></li>
+                    <li><a href="services.html">Concierge Service</a></li>
+                    <li><a href="services.html">Spa & Wellness</a></li>
+                    <li><a href="services.html">Gastronomic Experience</a></li>
                     <li><a href="services.html">VIP Transfer</a></li>
-                    <li><a href="services.html">Biznes Mərkəzi</a></li>
-                    <li><a href="services.html">Romantik Paketlər</a></li>
+                    <li><a href="services.html">Business Center</a></li>
+                    <li><a href="services.html">Romantic Packages</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Əlaqə</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Street, Baku, Azerbaijan</p>
                 <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
                 <p><i class="fas fa-envelope"></i> info@luxegrand.az</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 LuxeGrand Hotels. Bütün hüquqlar qorunur.</p>
-            <p class="developer-credit">Sayt <strong>Məmmədli Nurlan</strong> tərəfindən hazırlanmışdır</p>
+            <p>&copy; 2025 LuxeGrand Hotels. All rights reserved.</p>
+            <p class="developer-credit">Website developed by <strong>Məmmədli Nurlan</strong></p>
         </div>
     </footer>
 
