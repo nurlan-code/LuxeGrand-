@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xidmətlərimiz - LuxeGrand Hotels</title>
+    <title>Our Services - LuxeGrand Hotels</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -620,6 +620,206 @@
             color: #d4af37;
         }
 
+        .excellence-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .excellence-item {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .excellence-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .excellence-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .excellence-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .excellence-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #000;
+            transition: all 0.4s ease;
+        }
+
+        .excellence-item:hover .excellence-icon {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .excellence-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .excellence-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .gallery-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            padding: 8rem 3rem;
+            color: #faf8f5;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 0;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-placeholder {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 0, 0, 0.9));
+            border-color: #d4af37;
+        }
+
+        .gallery-placeholder i {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-placeholder h4 {
+            font-size: 1.2rem;
+            color: #faf8f5;
+            font-weight: 400;
+        }
+
+        .service-testimonials {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-slide {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author h4 {
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         @keyframes luxurySlideUp {
             from {
                 opacity: 0;
@@ -746,11 +946,11 @@
                 LuxeGrand
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Ana Səhifə</a></li>
-                <li><a href="services.html" style="color: #d4af37;">Xidmətlər</a></li>
-                <li><a href="packages.html">Paketlər</a></li>
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" style="color: #d4af37;">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -762,46 +962,45 @@
 
     <div class="page-content">
         <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+            <i class="fas fa-arrow-left"></i> Back to Home
         </a>
         
         <div class="page-header">
-            <h1>Xidmətlərimiz</h1>
-            <p>LuxeGrand Hotels olaraq, qonaqlarımıza unudulmaz təcrübələr yaşatmaq üçün ən yüksək standartlarda xidmət təqdim edirik</p>
+            <h1>Our Services</h1>
+            <p>As LuxeGrand Hotels, we provide the highest standard of service to create unforgettable experiences for our guests</p>
         </div>
 
         <div class="services-intro fade-in-luxury">
-            <h2>Lüks Həyat Tərzi Təcrübəsi</h2>
-            <p>Hər bir xidmətimizdə mükəmməllik, rahatlıq və eksklüzivlik prinsiplərinə sadiq qalırıq. Peşəkar komandamız sizin hər ehtiyacınızı öncədən düşünərək, fərdi yanaşma ilə xidmət göstərir. Lüks otellər səbəkəmizin təqdim etdiyi xidmətlər dünya standartlarına uyğundur.</p>
+            <h2>Luxury Lifestyle Experience</h2>
+            <p>In every service we provide, we remain committed to the principles of excellence, comfort, and exclusivity. Our professional team anticipates your every need and serves with a personalized approach. The services offered by our luxury hotel network meet world standards.</p>
         </div>
 
         <div class="services-categories">
             <div class="category-tab active" data-category="all">
-                <h3>Bütün Xidmətlər</h3>
-                <p>Təqdim etdiyimiz bütün lüks xidmətləri görün</p>
+                <h3>All Services</h3>
+                <p>View all luxury services we offer</p>
             </div>
             <div class="category-tab" data-category="wellness">
-                <h3>Sağlamlıq & Rahatlıq</h3>
-                <p>Spa, sağlamlıq və rahatlıq xidmətləri</p>
+                <h3>Wellness & Relaxation</h3>
+                <p>Spa, wellness and relaxation services</p>
             </div>
             <div class="category-tab" data-category="dining">
-                <h3>Qastro Nomik</h3>
-                <p>Yemək və içki təcrübələri</p>
+                <h3>Gastronomic</h3>
+                <p>Food and beverage experiences</p>
             </div>
             <div class="category-tab" data-category="business">
-                <h3>Biznes & Tədbir</h3>
-                <p>Biznes və konfrans xidmətləri</p>
+                <h3>Business & Events</h3>
+                <p>Business and conference services</p>
             </div>
         </div>
 
         <div class="services-grid" id="servicesGrid">
-            <!-- Konsyerj Xidmətləri -->
             <div class="service-card fade-in-luxury" data-category="all">
                 <div class="service-icon">
                     <i class="fas fa-concierge-bell"></i>
                 </div>
-                <h3>Fərdi Konsyerj Xidməti</h3>
-                <p>Hər ehtiyacınızı qarşılamaq üçün 24/7 fərdi konsyerj xidməti. Şəhərdəki ən yaxşı təcrübələrə eksklüziv giriş.</p>
+                <h3>Personal Concierge Service</h3>
+                <p>24/7 personal concierge service to meet all your needs. Exclusive access to the best experiences in the city.</p>
                 <ul class="service-features">
                     <li>24/7 şəxsi köməkçi</li>
                     <li>Rezervasiya və təşkil xidmətləri</li>
@@ -815,7 +1014,6 @@
                 <button class="book-service-btn" onclick="bookService('Konsyerj Xidməti')">Rezervasiya Et</button>
             </div>
 
-            <!-- Spa & Wellness -->
             <div class="service-card fade-in-luxury" data-category="wellness">
                 <div class="service-icon">
                     <i class="fas fa-spa"></i>
@@ -835,7 +1033,6 @@
                 <button class="book-service-btn" onclick="bookService('Spa Xidməti')">Rezervasiya Et</button>
             </div>
 
-            <!-- Qastro Nomik -->
             <div class="service-card fade-in-luxury" data-category="dining">
                 <div class="service-icon">
                     <i class="fas fa-utensils"></i>
@@ -855,7 +1052,6 @@
                 <button class="book-service-btn" onclick="bookService('Qastro Nomik Təcrübə')">Rezervasiya Et</button>
             </div>
 
-            <!-- VIP Transfer -->
             <div class="service-card fade-in-luxury" data-category="all">
                 <div class="service-icon">
                     <i class="fas fa-car"></i>
@@ -875,7 +1071,6 @@
                 <button class="book-service-btn" onclick="bookService('VIP Transfer')">Rezervasiya Et</button>
             </div>
 
-            <!-- Biznes Mərkəzi -->
             <div class="service-card fade-in-luxury" data-category="business">
                 <div class="service-icon">
                     <i class="fas fa-business-time"></i>
@@ -895,7 +1090,6 @@
                 <button class="book-service-btn" onclick="bookService('Biznes Mərkəzi')">Rezervasiya Et</button>
             </div>
 
-            <!-- Romantik Paketlər -->
             <div class="service-card fade-in-luxury" data-category="all">
                 <div class="service-icon">
                     <i class="fas fa-heart"></i>
@@ -915,7 +1109,6 @@
                 <button class="book-service-btn" onclick="bookService('Romantik Paket')">Rezervasiya Et</button>
             </div>
 
-            <!-- Etkinlik Təşkili -->
             <div class="service-card fade-in-luxury" data-category="business">
                 <div class="service-icon">
                     <i class="fas fa-calendar-alt"></i>
@@ -935,7 +1128,6 @@
                 <button class="book-service-btn" onclick="bookService('Etkinlik Təşkili')">Rezervasiya Et</button>
             </div>
 
-            <!-- Fitness & Yoga -->
             <div class="service-card fade-in-luxury" data-category="wellness">
                 <div class="service-icon">
                     <i class="fas fa-dumbbell"></i>
@@ -955,7 +1147,6 @@
                 <button class="book-service-btn" onclick="bookService('Fitness Mərkəzi')">Rezervasiya Et</button>
             </div>
 
-            <!-- Şəxsi Şef -->
             <div class="service-card fade-in-luxury" data-category="dining">
                 <div class="service-icon">
                     <i class="fas fa-chef-hat"></i>
@@ -1027,6 +1218,145 @@
                 </a>
             </div>
         </div>
+
+        <section class="excellence-section">
+            <div class="section-header">
+                <h2>Service Excellence Standards</h2>
+                <p>Our commitment to delivering exceptional service through rigorous standards and continuous improvement</p>
+            </div>
+            <div class="excellence-grid">
+                <div class="excellence-item fade-in-luxury">
+                    <div class="excellence-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Every service undergoes rigorous quality checks to ensure it meets our high standards before reaching our guests.</p>
+                </div>
+                <div class="excellence-item fade-in-luxury">
+                    <div class="excellence-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Timely Delivery</h3>
+                    <p>We understand the value of time and ensure all services are delivered promptly and efficiently.</p>
+                </div>
+                <div class="excellence-item fade-in-luxury">
+                    <div class="excellence-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Personalized Approach</h3>
+                    <p>Each service is tailored to individual preferences, ensuring a unique and memorable experience.</p>
+                </div>
+                <div class="excellence-item fade-in-luxury">
+                    <div class="excellence-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy & Security</h3>
+                    <p>Your privacy and security are our top priorities, with strict protocols in place to protect your information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2>Service Gallery</h2>
+                <p>Experience our services through these stunning visuals</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-spa"></i>
+                        <h4>Luxury Spa</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Fine Dining</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>Concierge Service</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-car"></i>
+                        <h4>VIP Transfer</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-users"></i>
+                        <h4>Event Planning</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-luxury">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-bed"></i>
+                        <h4>Room Service</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-testimonials">
+            <div class="section-header">
+                <h2>What Our Guests Say About Our Services</h2>
+                <p>Real experiences from our valued guests</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-slide fade-in-luxury">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The concierge service was absolutely exceptional. They arranged everything perfectly and exceeded all our expectations."</p>
+                        <div class="testimonial-author">
+                            <h4>Robert Anderson</h4>
+                            <span>Business Executive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide fade-in-luxury">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The spa treatments were divine. The therapists were professional and the facilities were world-class."</p>
+                        <div class="testimonial-author">
+                            <h4>Maria Garcia</h4>
+                            <span>Wellness Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide fade-in-luxury">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The dining experience was unforgettable. The chef's tasting menu was a culinary masterpiece."</p>
+                        <div class="testimonial-author">
+                            <h4>David Kim</h4>
+                            <span>Food Critic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="luxury-footer">
