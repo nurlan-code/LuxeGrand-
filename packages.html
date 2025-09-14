@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paketlərimiz - LuxeGrand Hotels</title>
+    <title>Our Packages - LuxeGrand Hotels</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -386,6 +386,234 @@
             color: #d4af37;
         }
 
+        .offers-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .offer-card {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .offer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .offer-card h3 {
+            font-size: 1.8rem;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .offer-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .offer-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #faf8f5;
+        }
+
+        .offer-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .offer-valid {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .comparison-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            padding: 8rem 3rem;
+            color: #faf8f5;
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            background: #ffffff;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            color: #000;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-row:nth-child(even) {
+            background: #faf8f5;
+        }
+
+        .feature-column,
+        .package-column,
+        .feature-name,
+        .feature-value {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .feature-column,
+        .feature-name {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .package-column {
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .feature-value {
+            color: #666;
+        }
+
+        .booking-process-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+            padding: 8rem 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: -1.5rem;
+            width: 3rem;
+            height: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            display: none;
+        }
+
+        .process-step:not(:last-child)::after {
+            display: block;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #ffffff;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: #d4af37;
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover .step-icon {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .process-step h3 {
+            font-size: 1.6rem;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
         @keyframes luxurySlideUp {
             from {
                 opacity: 0;
@@ -482,11 +710,11 @@
                 LuxeGrand
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Ana Səhifə</a></li>
-                <li><a href="services.html">Xidmətlər</a></li>
-                <li><a href="packages.html" style="color: #d4af37;">Paketlər</a></li>
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html" style="color: #d4af37;">Packages</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -498,63 +726,197 @@
 
     <div class="page-content">
         <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Ana Səhifəyə Qayıt
+            <i class="fas fa-arrow-left"></i> Back to Home
         </a>
         <div class="page-header">
-            <h1>Paketlərimiz</h1>
-            <p>Xüsusi ehtiyaclarınıza uyğun hazırlanmış lüks qonaqçılıq paketlərimizlə özünüzü kral kimi hiss edin</p>
+            <h1>Our Packages</h1>
+            <p>Feel like royalty with our luxury hospitality packages tailored to your special needs</p>
         </div>
 
         <div class="packages-grid">
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">KLASSİK LÜKS</h3>
-                <div class="package-price">€350/gecə</div>
+                <h3 class="package-title">CLASSIC LUXURY</h3>
+                <div class="package-price">€350/night</div>
                 <ul class="package-features">
-                    <li>Premium Otaq (45 m²)</li>
-                    <li>Səhər yeməyi daxildir</li>
-                    <li>Fitness Mərkəzi</li>
-                    <li>Paltaryuyan Xidməti</li>
-                    <li>24/7 Dəstək Xidməti</li>
-                    <li>Pulsuz Wi-Fi</li>
-                    <li>Mini bar (ölçülü)</li>
+                    <li>Premium Room (45 m²)</li>
+                    <li>Breakfast included</li>
+                    <li>Fitness Center</li>
+                    <li>Laundry Service</li>
+                    <li>24/7 Support Service</li>
+                    <li>Free Wi-Fi</li>
+                    <li>Mini bar (measured)</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">PREZIDENT LÜKS</h3>
-                <div class="package-price">€750/gecə</div>
+                <h3 class="package-title">PRESIDENT LUXURY</h3>
+                <div class="package-price">€750/night</div>
                 <ul class="package-features">
-                    <li>Prezident Suite (90 m²)</li>
-                    <li>Şəxsi Aşpaz Xidməti</li>
-                    <li>Limuzin Transfer</li>
-                    <li>Eksklüziv Spa Paketi</li>
-                    <li>VIP Giriş Hüququ</li>
-                    <li>Şəxsi Terras</li>
+                    <li>President Suite (90 m²)</li>
+                    <li>Personal Chef Service</li>
+                    <li>Limousine Transfer</li>
+                    <li>Exclusive Spa Package</li>
+                    <li>VIP Access Rights</li>
+                    <li>Private Terrace</li>
                     <li>Premium Mini Bar</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">ROYAL TƏCRÜBƏ</h3>
-                <div class="package-price">€1200/gecə</div>
+                <h3 class="package-title">ROYAL EXPERIENCE</h3>
+                <div class="package-price">€1200/night</div>
                 <ul class="package-features">
-                    <li>Kral Suite (150 m²)</li>
-                    <li>Şəxsi Butler Xidməti</li>
-                    <li>Helikopter Transferi</li>
-                    <li>Eksklüziv Etkinliklər</li>
-                    <li>Şəxsi Şofer Xidməti</li>
-                    <li>Özəl Hovuz</li>
-                    <li>Sınırsız Xidmətlər</li>
+                    <li>Royal Suite (150 m²)</li>
+                    <li>Personal Butler Service</li>
+                    <li>Helicopter Transfer</li>
+                    <li>Exclusive Events</li>
+                    <li>Personal Chauffeur Service</li>
+                    <li>Private Pool</li>
+                    <li>Unlimited Services</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
         </div>
+
+        <!-- Special Offers Section -->
+        <section class="offers-section">
+            <div class="section-header">
+                <h2>Special Offers & Promotions</h2>
+                <p>Exclusive deals and limited-time offers for our valued guests</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card fade-in-luxury">
+                    <div class="offer-badge">Limited Time</div>
+                    <h3>Early Bird Special</h3>
+                    <p>Book 30 days in advance and save up to 25% on your luxury stay</p>
+                    <div class="offer-details">
+                        <span class="offer-price">Save up to 25%</span>
+                        <span class="offer-valid">Valid until March 2025</span>
+                    </div>
+                    <a href="contact.html" class="btn-luxury btn-secondary-luxury">
+                        <i class="fas fa-gift"></i> Learn More
+                    </a>
+                </div>
+                <div class="offer-card fade-in-luxury">
+                    <div class="offer-badge">Exclusive</div>
+                    <h3>Romantic Getaway</h3>
+                    <p>Perfect for couples - includes champagne, rose petals, and couples spa treatment</p>
+                    <div class="offer-details">
+                        <span class="offer-price">€200 value</span>
+                        <span class="offer-valid">Available year-round</span>
+                    </div>
+                    <a href="contact.html" class="btn-luxury btn-secondary-luxury">
+                        <i class="fas fa-heart"></i> Book Now
+                    </a>
+                </div>
+                <div class="offer-card fade-in-luxury">
+                    <div class="offer-badge">New</div>
+                    <h3>Business Traveler</h3>
+                    <p>Extended stay packages with meeting room access and business center privileges</p>
+                    <div class="offer-details">
+                        <span class="offer-price">15% off</span>
+                        <span class="offer-valid">7+ nights stay</span>
+                    </div>
+                    <a href="contact.html" class="btn-luxury btn-secondary-luxury">
+                        <i class="fas fa-briefcase"></i> View Details
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Comparison Section -->
+        <section class="comparison-section">
+            <div class="section-header">
+                <h2>Package Comparison</h2>
+                <p>Compare our packages to find the perfect fit for your luxury experience</p>
+            </div>
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="feature-column">Features</div>
+                    <div class="package-column">Classic Luxury</div>
+                    <div class="package-column">President Luxury</div>
+                    <div class="package-column">Royal Experience</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Room Size</div>
+                    <div class="feature-value">45 m²</div>
+                    <div class="feature-value">90 m²</div>
+                    <div class="feature-value">150 m²</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Personal Butler</div>
+                    <div class="feature-value">❌</div>
+                    <div class="feature-value">❌</div>
+                    <div class="feature-value">✅</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Airport Transfer</div>
+                    <div class="feature-value">Standard</div>
+                    <div class="feature-value">Limousine</div>
+                    <div class="feature-value">Helicopter</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Spa Access</div>
+                    <div class="feature-value">Basic</div>
+                    <div class="feature-value">Premium</div>
+                    <div class="feature-value">Exclusive</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Dining Options</div>
+                    <div class="feature-value">Restaurant</div>
+                    <div class="feature-value">Personal Chef</div>
+                    <div class="feature-value">Private Chef</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Process Section -->
+        <section class="booking-process-section">
+            <div class="section-header">
+                <h2>Easy Booking Process</h2>
+                <p>Reserve your luxury experience in just a few simple steps</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in-luxury">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Choose Your Package</h3>
+                    <p>Browse our luxury packages and select the one that suits your needs and preferences.</p>
+                </div>
+                <div class="process-step fade-in-luxury">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Select Dates</h3>
+                    <p>Pick your preferred check-in and check-out dates for your luxury stay.</p>
+                </div>
+                <div class="process-step fade-in-luxury">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Secure Payment</h3>
+                    <p>Complete your reservation with our secure payment system and instant confirmation.</p>
+                </div>
+                <div class="process-step fade-in-luxury">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Enjoy Your Stay</h3>
+                    <p>Arrive and experience the ultimate luxury hospitality with our dedicated service.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="luxury-footer">
