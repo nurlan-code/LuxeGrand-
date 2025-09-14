@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxeGrand Hotels - Premium Qonaqxana Şəbəkəsi</title>
+    <title>LuxeGrand Hotels - Premium Hotel Network</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -539,6 +539,190 @@
             color: #d4af37;
         }
 
+        .testimonials-section {
+            background: linear-gradient(135deg, #faf8f5, #ffffff);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        .author-info h4 {
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .author-info span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            padding: 6rem 3rem;
+            color: #faf8f5;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: #faf8f5;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .newsletter-section {
+            background: linear-gradient(135deg, #d4af37, #f4e4a6);
+            padding: 6rem 3rem;
+            color: #000;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-weight: 300;
+        }
+
+        .newsletter-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 0;
+            font-size: 1.1rem;
+            background: #ffffff;
+            color: #333;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #666;
+        }
+
+        .newsletter-form .btn-luxury {
+            background: #000;
+            color: #d4af37;
+            border: 2px solid #000;
+            white-space: nowrap;
+        }
+
+        .newsletter-form .btn-luxury:hover {
+            background: #333;
+            border-color: #333;
+        }
+
         @keyframes luxurySlideUp {
             from {
                 opacity: 0;
@@ -693,11 +877,11 @@
                 LuxeGrand
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="home.html">Ana Səhifə</a></li>
-                <li><a href="services.html">Xidmətlər</a></li>
-                <li><a href="packages.html">Paketlər</a></li>
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -710,14 +894,14 @@
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1>Lüks Qonaqxana Təcrübəsi</h1>
-            <p class="hero-subtitle">Dünyanın ən prestijli şəhərlərində eksklüziv lüks otellər şəbəkəsi</p>
+            <h1>Luxury Hotel Experience</h1>
+            <p class="hero-subtitle">Exclusive luxury hotel network in the world's most prestigious cities</p>
             <div class="luxury-cta">
                 <a href="packages.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-gem"></i> Paketləri Kəşf Edin
+                    <i class="fas fa-gem"></i> Explore Packages
                 </a>
                 <a href="contact.html" class="btn-luxury btn-secondary-luxury">
-                    <i class="fas fa-phone"></i> Bizimlə Əlaqə
+                    <i class="fas fa-phone"></i> Contact Us
                 </a>
             </div>
         </div>
@@ -725,38 +909,38 @@
 
     <section class="luxury-section">
         <div class="section-header">
-            <h2>Xüsusi Xidmətlərimiz</h2>
-            <p>Hər detal dəyərli anılar yaratmaq üçün fərqləndirilmiş xidmətlərimizlə diqqətlə hazırlanmışdır</p>
+            <h2>Our Special Services</h2>
+            <p>Every detail is carefully crafted with our distinguished services to create precious memories</p>
         </div>
         <div class="services-grid">
             <div class="service-card fade-in-luxury">
                 <div class="service-icon">
                     <i class="fas fa-concierge-bell"></i>
                 </div>
-                <h3>Fərdi Konsyerj Xidməti</h3>
-                <p>Hər ehtiyacınızı qarşılamaq üçün 24/7 fərdi konsyerj xidməti. Şəhərdəki ən yaxşı təcrübələrə eksklüziv giriş.</p>
+                <h3>Personal Concierge Service</h3>
+                <p>24/7 personal concierge service to meet all your needs. Exclusive access to the best experiences in the city.</p>
                 <a href="services.html" class="btn-luxury btn-secondary-luxury">
-                    <i class="fas fa-info-circle"></i> Ətraflı
+                    <i class="fas fa-info-circle"></i> Details
                 </a>
             </div>
             <div class="service-card fade-in-luxury">
                 <div class="service-icon">
                     <i class="fas fa-spa"></i>
                 </div>
-                <h3>Lüks Spa & Sağlamlıq</h3>
-                <p>Dünya standartlarında spa müalicələri, fərdi sağlamlıq proqramları və ekspert terapevtlərlə tam rahatlıq təcrübəsi.</p>
+                <h3>Luxury Spa & Wellness</h3>
+                <p>World-class spa treatments, personalized wellness programs and complete relaxation experience with expert therapists.</p>
                 <a href="services.html" class="btn-luxury btn-secondary-luxury">
-                    <i class="fas fa-info-circle"></i> Ətraflı
+                    <i class="fas fa-info-circle"></i> Details
                 </a>
             </div>
             <div class="service-card fade-in-luxury">
                 <div class="service-icon">
                     <i class="fas fa-utensils"></i>
                 </div>
-                <h3>Qastro Nomik Təcrübə</h3>
-                <p>Mişlen ulduzlu şeflər tərəfindən hazırlanmən ekstravarant yeməklər və şəxsi aşpaz xidməti.</p>
+                <h3>Gastronomic Experience</h3>
+                <p>Extravagant dishes prepared by Michelin-starred chefs and personal chef service.</p>
                 <a href="services.html" class="btn-luxury btn-secondary-luxury">
-                    <i class="fas fa-info-circle"></i> Ətraflı
+                    <i class="fas fa-info-circle"></i> Details
                 </a>
             </div>
         </div>
@@ -764,51 +948,162 @@
 
     <section class="packages-section">
         <div class="section-header">
-            <h2>Eksklüziv Paketlərimiz</h2>
-            <p>Xüsusi ehtiyaclarınıza uyğun hazırlanmış lüks qonaqçılıq paketləri</p>
+            <h2>Our Exclusive Packages</h2>
+            <p>Luxury hospitality packages tailored to your special needs</p>
         </div>
         <div class="packages-grid">
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">KLASSİK LÜKS</h3>
-                <div class="package-price">€350/gecə</div>
+                <h3 class="package-title">CLASSIC LUXURY</h3>
+                <div class="package-price">€350/night</div>
                 <ul class="package-features">
-                    <li>Premium Otaq</li>
-                    <li>Səhər yeməyi daxildir</li>
-                    <li>Fitness Mərkəzi</li>
-                    <li>Paltaryuyan Xidməti</li>
-                    <li>24/7 Dəstək Xidməti</li>
+                    <li>Premium Room</li>
+                    <li>Breakfast included</li>
+                    <li>Fitness Center</li>
+                    <li>Laundry Service</li>
+                    <li>24/7 Support Service</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">PREZIDENT LÜKS</h3>
-                <div class="package-price">€750/gecə</div>
+                <h3 class="package-title">PRESIDENT LUXURY</h3>
+                <div class="package-price">€750/night</div>
                 <ul class="package-features">
-                    <li>Prezident Suite</li>
-                    <li>Şəxsi Aşpaz Xidməti</li>
-                    <li>Limuzin Transfer</li>
-                    <li>Eksklüziv Spa Paketi</li>
-                    <li>VIP Giriş Hüququ</li>
+                    <li>President Suite</li>
+                    <li>Personal Chef Service</li>
+                    <li>Limousine Transfer</li>
+                    <li>Exclusive Spa Package</li>
+                    <li>VIP Access Rights</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
             </div>
             <div class="package-card fade-in-luxury">
-                <h3 class="package-title">ROYAL TƏCRÜBƏ</h3>
-                <div class="package-price">€1200/gecə</div>
+                <h3 class="package-title">ROYAL EXPERIENCE</h3>
+                <div class="package-price">€1200/night</div>
                 <ul class="package-features">
-                    <li>Kral Suite</li>
-                    <li>Şəxsi Butler Xidməti</li>
-                    <li>Helikopter Transferi</li>
-                    <li>Eksklüziv Etkinliklər</li>
-                    <li>Şəxsi Şofer Xidməti</li>
+                    <li>Royal Suite</li>
+                    <li>Personal Butler Service</li>
+                    <li>Helicopter Transfer</li>
+                    <li>Exclusive Events</li>
+                    <li>Personal Chauffeur Service</li>
                 </ul>
                 <a href="contact.html" class="btn-luxury btn-primary-luxury">
-                    <i class="fas fa-calendar-check"></i> Rezervasiya
+                    <i class="fas fa-calendar-check"></i> Book Now
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="luxury-section testimonials-section">
+        <div class="section-header">
+            <h2>What Our Guests Say</h2>
+            <p>Discover the experiences of our valued guests from around the world</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in-luxury">
+                <div class="testimonial-content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The most exceptional hotel experience I've ever had. The attention to detail and personalized service exceeded all my expectations. Truly a world-class establishment."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <span>Business Executive, New York</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in-luxury">
+                <div class="testimonial-content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"LuxeGrand Hotels redefined luxury for me. From the moment I arrived until departure, every aspect was perfect. The spa treatments were absolutely divine."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <span>Investment Banker, London</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in-luxury">
+                <div class="testimonial-content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"An unforgettable honeymoon experience! The romantic packages and private dining options made our special moments even more magical. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>Emma & David Wilson</h4>
+                        <span>Newlyweds, Paris</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item fade-in-luxury">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Luxury Hotels</div>
+            </div>
+            <div class="stat-item fade-in-luxury">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item fade-in-luxury">
+                <div class="stat-number" data-target="100000">0</div>
+                <div class="stat-label">Happy Guests</div>
+            </div>
+            <div class="stat-item fade-in-luxury">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for exclusive offers, luxury travel tips, and special events</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-luxury btn-primary-luxury">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -817,7 +1112,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>LuxeGrand Hotels</h3>
-                <p>Dünyanın ən prestijli şəhərlərində lüks otellər şəbəkəsi. 2010-cu ildən bəri sizə ən yaxşı təcrübəni təqdim etmək üçün çalışırıq.</p>
+                <p>Luxury hotel network in the world's most prestigious cities. We have been working to provide you with the best experience since 2010.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -826,10 +1121,10 @@
                 </div>
             </div>
             <div class="footer-section">
-                <h3>Otellərimiz</h3>
+                <h3>Our Hotels</h3>
                 <ul>
-                    <li><a href="#">Bakı</a></li>
-                    <li><a href="#">İstanbul</a></li>
+                    <li><a href="#">Baku</a></li>
+                    <li><a href="#">Istanbul</a></li>
                     <li><a href="#">Paris</a></li>
                     <li><a href="#">London</a></li>
                     <li><a href="#">Dubai</a></li>
@@ -837,26 +1132,26 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Xidmətlərimiz</h3>
+                <h3>Our Services</h3>
                 <ul>
-                    <li><a href="services.html">Konsyerj Xidməti</a></li>
-                    <li><a href="services.html">Spa & Sağlamlıq</a></li>
-                    <li><a href="services.html">Qastro Nomik Təcrübə</a></li>
+                    <li><a href="services.html">Concierge Service</a></li>
+                    <li><a href="services.html">Spa & Wellness</a></li>
+                    <li><a href="services.html">Gastronomic Experience</a></li>
                     <li><a href="services.html">VIP Transfer</a></li>
-                    <li><a href="services.html">Biznes Mərkəzi</a></li>
-                    <li><a href="services.html">Romantik Paketlər</a></li>
+                    <li><a href="services.html">Business Center</a></li>
+                    <li><a href="services.html">Romantic Packages</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Əlaqə</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Lüks Küçəsi, Bakı, Azərbaycan</p>
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Street, Baku, Azerbaijan</p>
                 <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
                 <p><i class="fas fa-envelope"></i> info@luxegrand.az</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 LuxeGrand Hotels. Bütün hüquqlar qorunur.</p>
-            <p class="developer-credit">Sayt <strong>Məmmədli Nurlan</strong> tərəfindən hazırlanmışdır</p>
+            <p>&copy; 2025 LuxeGrand Hotels. All rights reserved.</p>
+            <p class="developer-credit">Website developed by <strong>Məmmədli Nurlan</strong></p>
         </div>
     </footer>
 
@@ -895,6 +1190,48 @@
             fadeElements.forEach(element => {
                 observer.observe(element);
             });
+
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalNumber = parseInt(target.getAttribute('data-target'));
+                        animateNumber(target, 0, finalNumber, 2000);
+                        statsObserver.unobserve(target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            statNumbers.forEach(stat => {
+                statsObserver.observe(stat);
+            });
+
+            function animateNumber(element, start, end, duration) {
+                const startTime = performance.now();
+                const isLargeNumber = end >= 1000;
+                
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    const current = Math.floor(start + (end - start) * progress);
+                    
+                    if (isLargeNumber) {
+                        element.textContent = current.toLocaleString();
+                    } else {
+                        element.textContent = current;
+                    }
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    }
+                }
+                
+                requestAnimationFrame(updateNumber);
+            }
         });
     </script>
 </body>
